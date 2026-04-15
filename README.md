@@ -28,6 +28,26 @@ Build all modules with explicit Maven path:
 & "C:\.Apache\apache-maven-3.9.11\\bin\\mvn.cmd" -q clean package
 ```
 
+## Build and Deploy
+
+Build and verify all modules:
+
+```powershell
+& "C:\.Apache\apache-maven-3.9.11\\bin\\mvn.cmd" clean verify
+```
+
+Deploy to Maven Central (uses `serverId=central` from your `settings.xml`):
+
+```powershell
+& "C:\.Apache\apache-maven-3.9.11\\bin\\mvn.cmd" clean deploy
+```
+
+Deploy without waiting for Central publish completion:
+
+```powershell
+& "C:\.Apache\apache-maven-3.9.11\\bin\\mvn.cmd" clean deploy -Dcentral.autoPublish=false -Dcentral.waitUntil=validated
+```
+
 ## Modules
 
 - `core`: data model and composition pipeline (`Texture + Mesh + Deformer + ClippingMask + DrawOrder`)
