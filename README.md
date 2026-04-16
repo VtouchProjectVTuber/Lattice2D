@@ -20,8 +20,10 @@ mvn clean deploy
 Deploy without waiting for Central publish completion:
 
 ```powershell
-mvn clean deploy -Dcentral.autoPublish=false -Dcentral.waitUntil=validated
+mvn clean deploy "-Dcentral.autoPublish=false" "-Dcentral.waitUntil=validated"
 ```
+
+PowerShell note: quote `-D` properties that contain dots.
 
 Important publishing layout:
 
@@ -137,7 +139,7 @@ DirectJLib in `backend-dx` is wired as an optional Maven profile named `with-dir
 If your DirectJLib is already published, pass its version:
 
 ```powershell
-mvn -q -pl backend-dx -Pwith-directjlib -Ddirectjlib.version=1.0.0 clean package
+mvn -q -pl backend-dx -Pwith-directjlib "-Ddirectjlib.version=1.0.0" clean package
 ```
 
 Enable GLFW profile for any backend module:
