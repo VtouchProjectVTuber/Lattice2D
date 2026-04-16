@@ -5,10 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cf.vtouch</groupId>
-    <artifactId>lattice2d-lib</artifactId>
+    <artifactId>lattice2d</artifactId>
     <version>0.1.0-alpha.1</version>
-    <name>Lattice2D Lib</name>
-    <description>2D composition toolkit core library for mesh, deformation, clipping, draw ordering, and rigging helpers</description>
+    <packaging>pom</packaging>
+
+    <name>Lattice2D Relocation POM</name>
+    <description>Relocation POM for legacy cf.vtouch:lattice2d coordinate</description>
     <url>https://github.com/VtouchProjectVTuber/Lattice2D</url>
 
     <licenses>
@@ -43,65 +45,17 @@
         <tag>v0.1.0-alpha.1</tag>
     </scm>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.10.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <distributionManagement>
+        <relocation>
+            <groupId>cf.vtouch</groupId>
+            <artifactId>lattice2d-lib</artifactId>
+            <version>0.1.0-alpha.1</version>
+            <message>Use cf.vtouch:lattice2d-lib as the primary runtime artifact.</message>
+        </relocation>
+    </distributionManagement>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-                <configuration>
-                    <release>${maven.compiler.release}</release>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.3.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <doclint>none</doclint>
-                    <source>${maven.compiler.release}</source>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>

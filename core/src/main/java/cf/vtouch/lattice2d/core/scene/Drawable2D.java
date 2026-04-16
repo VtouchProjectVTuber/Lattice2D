@@ -13,6 +13,7 @@ public final class Drawable2D {
     private final DeformPipeline2D deformer;
     private final ClipMask2D clipMask;
     private final DrawOrder2D drawOrder;
+    private final RenderState2D renderState;
 
     private Drawable2D(Builder builder) {
         this.textureRef = Objects.requireNonNull(builder.textureRef, "textureRef must not be null");
@@ -20,6 +21,7 @@ public final class Drawable2D {
         this.deformer = Objects.requireNonNull(builder.deformer, "deformer must not be null");
         this.clipMask = builder.clipMask;
         this.drawOrder = Objects.requireNonNull(builder.drawOrder, "drawOrder must not be null");
+        this.renderState = Objects.requireNonNull(builder.renderState, "renderState must not be null");
     }
 
     public String textureRef() {
@@ -42,6 +44,10 @@ public final class Drawable2D {
         return drawOrder;
     }
 
+    public RenderState2D renderState() {
+        return renderState;
+    }
+
     public static Builder builder(String textureRef, Mesh2D mesh) {
         return new Builder(textureRef, mesh);
     }
@@ -52,6 +58,7 @@ public final class Drawable2D {
         private DeformPipeline2D deformer = new DeformPipeline2D().add(Deformer2D.identity());
         private ClipMask2D clipMask;
         private DrawOrder2D drawOrder = new DrawOrder2D(0, 0);
+        private RenderState2D renderState = RenderState2D.defaultState();
 
         private Builder(String textureRef, Mesh2D mesh) {
             this.textureRef = textureRef;
@@ -70,6 +77,11 @@ public final class Drawable2D {
 
         public Builder drawOrder(DrawOrder2D drawOrder) {
             this.drawOrder = drawOrder;
+            return this;
+        }
+
+        public Builder renderState(RenderState2D renderState) {
+            this.renderState = renderState;
             return this;
         }
 

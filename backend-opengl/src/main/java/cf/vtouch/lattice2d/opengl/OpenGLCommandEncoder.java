@@ -8,6 +8,7 @@ public final class OpenGLCommandEncoder {
                 command.textureRef(),
                 command.mesh(),
                 command.clipMask(),
+                command.renderState(),
                 command.order().layer(),
                 command.order().zIndex()
         );

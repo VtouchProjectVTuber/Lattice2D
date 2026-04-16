@@ -4,15 +4,50 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>cf.vtouch</groupId>
-        <artifactId>lattice2d</artifactId>
-        <version>0.1.0-alpha.0</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
-
+    <groupId>cf.vtouch</groupId>
     <artifactId>lattice2d-opengl</artifactId>
+    <version>0.1.0-alpha.1</version>
     <name>Lattice2D OpenGL Adapter</name>
+    <description>OpenGL-facing command packet adapter for Lattice2D</description>
+    <url>https://github.com/VtouchProjectVTuber/Lattice2D</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>vtouch</id>
+            <name>Vtouch Project</name>
+            <organization>Vtouch Project</organization>
+            <organizationUrl>https://github.com/VtouchProjectVTuber</organizationUrl>
+        </developer>
+        <developer>
+            <id>tamkungz</id>
+            <name>TamKungZ_</name>
+            <email>kittiwut.pimpromma@gmail.com</email>
+            <roles>
+                <role>maintain</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/VtouchProjectVTuber/Lattice2D.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/VtouchProjectVTuber/Lattice2D.git</developerConnection>
+        <url>https://github.com/VtouchProjectVTuber/Lattice2D</url>
+        <tag>v0.1.0-alpha.1</tag>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+        <glfw.binding.version>0.1.0-alpha.0</glfw.binding.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -34,4 +69,72 @@
             </dependencies>
         </profile>
     </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <doclint>none</doclint>
+                    <source>${maven.compiler.release}</source>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.7</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.9.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                    <waitUntil>published</waitUntil>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

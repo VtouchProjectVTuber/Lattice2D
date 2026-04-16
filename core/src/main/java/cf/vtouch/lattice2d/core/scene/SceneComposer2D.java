@@ -15,7 +15,8 @@ public final class SceneComposer2D {
                     drawable.textureRef(),
                     drawable.deformedMesh(),
                     drawable.clipMask(),
-                    drawable.drawOrder()
+                    drawable.drawOrder(),
+                    drawable.renderState()
             ));
         }
         return commands;

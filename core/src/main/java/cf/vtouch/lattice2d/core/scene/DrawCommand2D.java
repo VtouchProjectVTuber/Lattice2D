@@ -7,6 +7,10 @@ public record DrawCommand2D(
         String textureRef,
         Mesh2D mesh,
         ClipMask2D clipMask,
-        DrawOrder2D order
+        DrawOrder2D order,
+        RenderState2D renderState
 ) {
+    public DrawCommand2D(String textureRef, Mesh2D mesh, ClipMask2D clipMask, DrawOrder2D order) {
+        this(textureRef, mesh, clipMask, order, RenderState2D.defaultState());
+    }
 }
