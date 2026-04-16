@@ -1,3 +1,13 @@
+<p align="center">
+  <img src="https://pub-df28fb9f69aa4326a1c6e10fb1f2abdc.r2.dev/vt/Lattice2D.svg" width="120"/>
+</p>
+
+<br/>
+
+  [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
+
+</div>
+
 # Lattice2D (Java)
 
 Toolkit helper for 2D mesh/deformer/clip/draw-order orchestration.
