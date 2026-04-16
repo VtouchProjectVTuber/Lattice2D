@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## 0.1.0-alpha.2
+
 ## 0.1.0-alpha.1
 
 - Added a parameter-driven rigging layer under `cf.vtouch.lattice2d.core.rig`.
