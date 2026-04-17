@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://pub-df28fb9f69aa4326a1c6e10fb1f2abdc.r2.dev/vt/Lattice2D.svg" width="120"/>
+  <img src="https://pub-df28fb9f69aa4326a1c6e10fb1f2abdc.r2.dev/vt/Lattice2D-V2-Icon.png" width="20%"/>
 </p>
 
 <br/>
