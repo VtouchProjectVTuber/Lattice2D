@@ -10,8 +10,21 @@
 
 # Lattice2D (Java)
 
-Toolkit helper for 2D mesh/deformer/clip/draw-order orchestration.
+Java library for 2D mesh deformation, rigging, clipping, draw ordering, and renderer command composition.
+Use this when you need a clean data/composition layer in Java and want to render with OpenGL, Vulkan, DirectX, or your own GPU backend.
 This project intentionally does not render by itself; your app controls GPU rendering.
+
+## What this library is
+
+- A Java 17+ 2D runtime helper for mesh + rig pipelines
+- A renderer-agnostic command composer (`List<DrawCommand2D>` output)
+- A backend-adapter ecosystem (`lattice2d-opengl`, `lattice2d-vulkan`, `lattice2d-dx`)
+
+## Keywords
+
+Java 2D library, Java mesh deformation library, Java rigging library, Java sprite mesh, Java draw command pipeline,
+OpenGL command encoder Java, Vulkan command encoder Java, DirectX command encoder Java,
+Maven Java graphics library, renderer-agnostic Java 2D toolkit.
 
 ## Build and Deploy
 
@@ -50,8 +63,20 @@ Use `lattice2d-lib` as the main runtime artifact:
 <dependency>
   <groupId>cf.vtouch</groupId>
   <artifactId>lattice2d-lib</artifactId>
-  <version>0.1.0-alpha.1</version>
+  <version>0.1.0-alpha.2</version>
 </dependency>
+```
+
+Gradle (Kotlin DSL):
+
+```kotlin
+implementation("cf.vtouch:lattice2d-lib:0.1.0-alpha.2")
+```
+
+Gradle (Groovy):
+
+```groovy
+implementation 'cf.vtouch:lattice2d-lib:0.1.0-alpha.2'
 ```
 
 ## Modules
@@ -124,6 +149,8 @@ public final class RigFrameExample {
 - Cached compose path: `RigComposeCache2D` with dirty updates based on parameter dependencies
 - Parameter specs: `ParameterSpec2D` with min/max/default/clamp/curve and helpers in `ParameterMath2D` (`lerp`, `smoothStep`, `spring`)
 - Mesh safety and validation: index-range checks, triangle winding checks, and degenerate triangle detection
+- UV mapping helpers: `UvRect2D`, `UvTransform2D`, and `MeshUv2D` for atlas remap and sprite-sheet region helpers
+- Material/slot mapping helpers: `TextureSlot2D`, `MaterialDefinition2D`, `MaterialRegistry2D`, and `ResolvedMaterial2D`
 
 Cache compose example:
 

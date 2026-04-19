@@ -40,7 +40,7 @@
         <connection>scm:git:https://github.com/VtouchProjectVTuber/Lattice2D.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/VtouchProjectVTuber/Lattice2D.git</developerConnection>
         <url>https://github.com/VtouchProjectVTuber/Lattice2D</url>
-        <tag>v0.1.0-alpha.1</tag>
+        <tag>v0.1.0-alpha.2</tag>
     </scm>
 
     <properties>

@@ -2,6 +2,19 @@
 
 ## 0.1.0-alpha.2
 
+- Added UV mapping toolkit for texture atlases and sprite sheets:
+  - `UvRect2D`
+  - `UvTransform2D`
+  - `MeshUv2D`
+- Added material/texture-slot mapping utilities for renderer integration:
+  - `TextureSlot2D`
+  - `MaterialDefinition2D`
+  - `MaterialRegistry2D`
+  - `ResolvedMaterial2D`
+- Added backend encoder tests (OpenGL, Vulkan, DirectX) to validate field mapping from `DrawCommand2D`.
+- Added CI workflow (`.github/workflows/ci.yml`) to run Maven `clean verify` on push/PR.
+- Updated SCM tags and README dependency examples to `0.1.0-alpha.2`.
+
 ## 0.1.0-alpha.1
 
 - Added a parameter-driven rigging layer under `cf.vtouch.lattice2d.core.rig`.
